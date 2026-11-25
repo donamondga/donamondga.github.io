@@ -1,0 +1,895 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>17c传媒 | 光影叙事与影像文化的持续现场</title>
+<meta name="description" content="17c传媒是一家专注影像创作与视频内容生态的传媒品牌，以纪录、短片、栏目与社区放映构建持续的影像现场，连接创作者与观众。">
+<style>
+:root{
+  --ink:#0e1116;
+  --ink-2:#1a1f28;
+  --paper:#f6f4ef;
+  --paper-2:#ebe7de;
+  --line:rgba(14,17,22,.12);
+  --line-strong:rgba(14,17,22,.28);
+  --accent:#e2542b;
+  --accent-2:#1f6feb;
+  --gold:#c8a15a;
+  --muted:#5f6673;
+  --muted-2:#8a909a;
+  --radius:14px;
+  --shadow:0 18px 50px rgba(14,17,22,.10);
+  --mono:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,"Segoe UI",sans-serif;
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer}
+::selection{background:var(--accent);color:#fff}
+.wrap{width:min(1180px,92vw);margin:0 auto}
+.eyebrow{
+  font-family:var(--mono);font-size:11px;letter-spacing:.28em;text-transform:uppercase;
+  color:var(--muted);display:inline-flex;align-items:center;gap:10px;
+}
+.eyebrow::before{content:"";width:26px;height:1px;background:var(--accent);display:inline-block}
+h1,h2,h3,h4{line-height:1.2;margin:0;letter-spacing:-.01em}
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:40px;flex-wrap:wrap}
+.sec-head h2{font-size:clamp(26px,3.4vw,40px);font-weight:800}
+.sec-head p{margin:0;color:var(--muted);max-width:44ch;font-size:15px}
+.topbar{
+  position:sticky;top:0;z-index:50;background:rgba(246,244,239,.86);
+  backdrop-filter:blur(14px);border-bottom:1px solid var(--line);
+}
+.nav{display:flex;align-items:center;justify-content:space-between;height:70px}
+.brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:-.02em}
+.brand .mark{
+  width:34px;height:34px;border-radius:9px;background:var(--ink);color:var(--paper);
+  display:grid;place-items:center;font-family:var(--mono);font-size:13px;letter-spacing:.04em;
+}
+.brand span small{display:block;font-family:var(--mono);font-size:9px;letter-spacing:.3em;color:var(--muted-2);font-weight:500}
+.nav-links{display:flex;gap:30px;font-size:14px;color:var(--muted)}
+.nav-links a{position:relative;padding:6px 0;transition:color .2s}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:0;background:var(--accent);transition:width .25s}
+.nav-links a:hover{color:var(--ink)}
+.nav-links a:hover::after{width:100%}
+.nav-cta{
+  display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:var(--paper);
+  padding:11px 20px;border-radius:999px;font-size:13.5px;font-weight:600;transition:transform .2s,background .2s;
+}
+.nav-cta:hover{background:var(--accent);transform:translateY(-1px)}
+.hero{position:relative;padding:74px 0 56px;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
+.hero h1{font-size:clamp(44px,6.6vw,86px);font-weight:900;letter-spacing:-.035em;margin:18px 0 22px}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero .lede{font-size:17px;color:var(--muted);max-width:52ch;margin:0 0 30px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.btn-primary{
+  display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:#fff;
+  padding:15px 28px;border-radius:999px;font-weight:700;font-size:14.5px;
+  box-shadow:0 12px 30px rgba(226,84,43,.28);transition:transform .2s,box-shadow .2s;
+}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 18px 40px rgba(226,84,43,.34)}
+.btn-ghost{
+  display:inline-flex;align-items:center;gap:10px;padding:14px 24px;border-radius:999px;
+  border:1px solid var(--line-strong);font-weight:600;font-size:14px;color:var(--ink);
+  transition:background .2s,border-color .2s;
+}
+.btn-ghost:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.hero-meta{display:flex;gap:34px;margin-top:42px;flex-wrap:wrap}
+.hero-meta div strong{display:block;font-size:26px;font-weight:800;letter-spacing:-.02em}
+.hero-meta div span{font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted-2)}
+.hero-visual{position:relative}
+.frame{
+  position:relative;border-radius:18px;overflow:hidden;background:var(--ink);
+  aspect-ratio:4/5;box-shadow:var(--shadow);border:1px solid rgba(14,17,22,.5);
+}
+.frame svg{width:100%;height:100%}
+.frame .tag{
+  position:absolute;top:16px;left:16px;background:rgba(246,244,239,.92);color:var(--ink);
+  font-family:var(--mono);font-size:10px;letter-spacing:.18em;padding:6px 10px;border-radius:6px;
+}
+.frame .rec{
+  position:absolute;top:16px;right:16px;display:flex;align-items:center;gap:7px;color:#fff;
+  font-family:var(--mono);font-size:10px;letter-spacing:.16em;
+}
+.frame .rec i{width:7px;height:7px;border-radius:50%;background:#ff4d3d;animation:blink 1.4s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+.frame .caption{
+  position:absolute;left:16px;right:16px;bottom:16px;color:#fff;
+  display:flex;justify-content:space-between;align-items:flex-end;gap:12px;
+}
+.frame .caption b{font-size:13px;font-weight:600;letter-spacing:.02em}
+.frame .caption small{font-family:var(--mono);font-size:10px;color:rgba(255,255,255,.6);letter-spacing:.14em}
+.floating-card{
+  position:absolute;right:-26px;bottom:38px;background:var(--paper);border:1px solid var(--line);
+  border-radius:12px;padding:14px 16px;box-shadow:var(--shadow);min-width:172px;
+}
+.floating-card small{font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;color:var(--muted-2)}
+.floating-card strong{display:block;font-size:20px;font-weight:800;margin-top:2px}
+.floating-card .bar{height:5px;border-radius:3px;background:var(--paper-2);margin-top:9px;overflow:hidden}
+.floating-card .bar i{display:block;height:100%;width:78%;background:var(--accent-2);border-radius:3px}
+.logo-strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:24px 0;background:var(--paper-2)}
+.logo-strip .wrap{display:flex;align-items:center;gap:40px;flex-wrap:wrap;justify-content:space-between}
+.logo-strip span{font-family:var(--mono);font-size:11px;letter-spacing:.22em;color:var(--muted-2)}
+.logo-strip .names{display:flex;gap:38px;flex-wrap:wrap;font-weight:700;font-size:15px;color:var(--muted);opacity:.75}
+section{padding:88px 0}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+.about-copy p{color:var(--muted);font-size:15.5px;margin:0 0 18px}
+.about-copy p strong{color:var(--ink)}
+.about-copy .quote{
+  margin:30px 0 0;padding:22px 24px;border-left:2px solid var(--accent);background:var(--paper-2);
+  border-radius:0 12px 12px 0;font-size:14.5px;color:var(--ink-2);
+}
+.pillars{display:grid;gap:16px}
+.pillar{
+  display:flex;gap:18px;padding:22px 22px;border:1px solid var(--line);border-radius:var(--radius);
+  background:#fff;transition:transform .25s,border-color .25s,box-shadow .25s;
+}
+.pillar:hover{transform:translateY(-3px);border-color:var(--line-strong);box-shadow:var(--shadow)}
+.pillar .num{font-family:var(--mono);font-size:12px;color:var(--accent);letter-spacing:.1em;padding-top:3px}
+.pillar h4{font-size:16px;margin-bottom:6px}
+.pillar p{margin:0;font-size:13.5px;color:var(--muted);line-height:1.65}
+.works{background:var(--ink);color:var(--paper)}
+.works .sec-head h2{color:var(--paper)}
+.works .sec-head p{color:rgba(246,244,239,.6)}
+.works .eyebrow{color:rgba(246,244,239,.55)}
+.works .eyebrow::before{background:var(--gold)}
+.work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.work-card{
+  position:relative;border-radius:var(--radius);overflow:hidden;background:#161b23;
+  border:1px solid rgba(246,244,239,.09);transition:transform .3s,border-color .3s;
+}
+.work-card:hover{transform:translateY(-5px);border-color:rgba(246,244,239,.28)}
+.work-card .thumb{aspect-ratio:16/10;position:relative;overflow:hidden}
+.work-card .thumb svg{width:100%;height:100%;transition:transform .5s}
+.work-card:hover .thumb svg{transform:scale(1.04)}
+.work-card .play{
+  position:absolute;inset:0;display:grid;place-items:center;opacity:0;transition:opacity .3s;
+  background:rgba(14,17,22,.35);
+}
+.work-card:hover .play{opacity:1}
+.play span{
+  width:52px;height:52px;border-radius:50%;background:rgba(246,244,239,.95);color:var(--ink);
+  display:grid;place-items:center;font-size:15px;padding-left:3px;
+}
+.work-card .meta{padding:18px 20px 22px}
+.work-card .meta .k{font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;color:var(--gold)}
+.work-card .meta h4{font-size:17px;margin:7px 0 6px;color:var(--paper)}
+.work-card .meta p{margin:0;font-size:13px;color:rgba(246,244,239,.55)}
+.work-more{display:flex;justify-content:center;margin-top:42px}
+.work-more a{
+  display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(246,244,239,.28);
+  padding:13px 28px;border-radius:999px;font-size:14px;color:var(--paper);transition:background .2s;
+}
+.work-more a:hover{background:var(--paper);color:var(--ink)}
+.program{background:var(--paper-2)}
+.prog-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--line)}
+.prog-item{padding:30px 24px 30px 0;border-bottom:1px solid var(--line);position:relative}
+.prog-item:not(:last-child){border-right:1px solid var(--line);padding-right:24px;margin-right:24px}
+.prog-item .d{font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--accent)}
+.prog-item h4{font-size:17px;margin:10px 0 8px}
+.prog-item p{margin:0;font-size:13px;color:var(--muted);line-height:1.65}
+.prog-item .status{
+  display:inline-block;margin-top:14px;font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;
+  padding:4px 9px;border-radius:5px;background:rgba(31,111,235,.1);color:var(--accent-2);
+}
+.prog-item .status.live{background:rgba(226,84,43,.1);color:var(--accent)}
+.voices-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.voice{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:28px;
+  display:flex;flex-direction:column;gap:16px;transition:box-shadow .25s,transform .25s;
+}
+.voice:hover{box-shadow:var(--shadow);transform:translateY(-3px)}
+.voice .stars{color:var(--gold);font-size:13px;letter-spacing:3px}
+.voice blockquote{margin:0;font-size:14.5px;color:var(--ink-2);line-height:1.8}
+.voice .who{display:flex;align-items:center;gap:12px;margin-top:auto;padding-top:8px}
+.avatar{
+  width:42px;height:42px;border-radius:50%;display:grid;place-items:center;
+  font-weight:800;font-size:14px;color:#fff;flex:none;
+}
+.voice .who b{display:block;font-size:13.5px}
+.voice .who span{font-size:11.5px;color:var(--muted-2);font-family:var(--mono);letter-spacing:.06em}
+.stats{background:var(--ink);color:var(--paper);padding:64px 0}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;text-align:left}
+.stat b{display:block;font-size:clamp(30px,4vw,46px);font-weight:900;letter-spacing:-.03em;line-height:1}
+.stat b i{font-style:normal;color:var(--gold);font-size:.55em;margin-left:4px}
+.stat span{display:block;margin-top:10px;font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;color:rgba(246,244,239,.55);text-transform:uppercase}
+.journal-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:26px}
+.j-feature{
+  position:relative;border-radius:var(--radius);overflow:hidden;background:var(--ink);color:var(--paper);
+  min-height:380px;display:flex;flex-direction:column;justify-content:flex-end;padding:34px;
+}
+.j-feature svg{position:absolute;inset:0;width:100%;height:100%;opacity:.85}
+.j-feature .j-content{position:relative;z-index:2}
+.j-feature .k{font-family:var(--mono);font-size:10px;letter-spacing:.22em;color:var(--gold)}
+.j-feature h3{font-size:clamp(22px,2.6vw,30px);margin:12px 0 10px;max-width:26ch}
+.j-feature p{margin:0;color:rgba(246,244,239,.68);font-size:13.5px;max-width:46ch}
+.j-list{display:grid;gap:14px}
+.j-item{
+  display:grid;grid-template-columns:78px 1fr;gap:16px;align-items:start;
+  padding:18px;border:1px solid var(--line);border-radius:12px;background:#fff;transition:border-color .2s,transform .2s;
+}
+.j-item:hover{border-color:var(--line-strong);transform:translateX(3px)}
+.j-item .date{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;color:var(--muted-2);padding-top:3px}
+.j-item h4{font-size:14.5px;margin-bottom:5px;line-height:1.45}
+.j-item p{margin:0;font-size:12.5px;color:var(--muted);line-height:1.6}
+.cta-band{background:var(--accent);color:#fff;padding:74px 0;position:relative;overflow:hidden}
+.cta-band::after{
+  content:"";position:absolute;right:-80px;top:-80px;width:340px;height:340px;border-radius:50%;
+  border:1px solid rgba(255,255,255,.28);
+}
+.cta-band::before{
+  content:"";position:absolute;right:20px;top:20px;width:200px;height:200px;border-radius:50%;
+  border:1px solid rgba(255,255,255,.2);
+}
+.cta-inner{display:flex;justify-content:space-between;align-items:center;gap:40px;flex-wrap:wrap;position:relative;z-index:2}
+.cta-inner h2{font-size:clamp(28px,4vw,46px);font-weight:900;max-width:18ch;letter-spacing:-.02em}
+.cta-inner p{margin:12px 0 0;color:rgba(255,255,255,.82);max-width:48ch;font-size:15px}
+.cta-form{display:flex;gap:10px;background:rgba(255,255,255,.14);padding:7px;border-radius:999px;border:1px solid rgba(255,255,255,.28)}
+.cta-form input{
+  border:0;background:transparent;color:#fff;font-size:14px;padding:10px 16px;outline:none;width:220px;
+}
+.cta-form input::placeholder{color:rgba(255,255,255,.7)}
+.cta-form button{
+  border:0;background:var(--ink);color:#fff;padding:11px 22px;border-radius:999px;font-weight:600;font-size:13.5px;transition:background .2s;
+}
+.cta-form button:hover{background:#000}
+footer{padding:60px 0 30px;background:var(--paper)}
+.foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px;padding-bottom:44px;border-bottom:1px solid var(--line)}
+.foot-brand .brand{margin-bottom:16px}
+.foot-brand p{font-size:13px;color:var(--muted);max-width:34ch;margin:0 0 18px}
+.socials{display:flex;gap:10px}
+.socials a{
+  width:34px;height:34px;border-radius:9px;border:1px solid var(--line);display:grid;place-items:center;
+  font-family:var(--mono);font-size:10px;color:var(--muted);transition:all .2s;
+}
+.socials a:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.foot-col h5{font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;color:var(--muted-2);margin:0 0 16px;text-transform:uppercase}
+.foot-col ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.foot-col a{font-size:13px;color:var(--muted);transition:color .2s}
+.foot-col a:hover{color:var(--accent)}
+.foot-bottom{display:flex;justify-content:space-between;align-items:center;gap:20px;padding-top:26px;flex-wrap:wrap}
+.foot-bottom span{font-size:12px;color:var(--muted-2);font-family:var(--mono);letter-spacing:.04em}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+@media(max-width:960px){
+  .hero-grid,.about-grid,.journal-grid{grid-template-columns:1fr}
+  .hero-grid{gap:40px}
+  .work-grid,.voices-grid{grid-template-columns:1fr 1fr}
+  .prog-grid{grid-template-columns:1fr 1fr}
+  .prog-item:not(:last-child){border-right:0;margin-right:0}
+  .stats-grid{grid-template-columns:1fr 1fr;gap:34px}
+  .foot-grid{grid-template-columns:1fr 1fr}
+  .floating-card{right:12px}
+  .nav-links{display:none}
+}
+@media(max-width:620px){
+  .work-grid,.voices-grid{grid-template-columns:1fr}
+  .stats-grid,.foot-grid{grid-template-columns:1fr}
+  section{padding:64px 0}
+  .hero{padding:48px 0 40px}
+  .cta-form{flex-direction:column;width:100%;border-radius:16px}
+  .cta-form input{width:100%}
+  .cta-form button{width:100%}
+}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap nav">
+    <a class="brand" href="#top">
+      <span class="mark">17C</span>
+      <span>17c传媒<small>MEDIA / VISUAL</small></span>
+    </a>
+    <nav class="nav-links">
+      <a href="#about">品牌故事</a>
+      <a href="#works">影像作品</a>
+      <a href="#program">内容栏目</a>
+      <a href="#voices">观众回声</a>
+      <a href="#journal">影像手记</a>
+    </nav>
+    <a class="nav-cta" href="#join">成为创作者 <span>↗</span></a>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">Since 2016 · 影像叙事现场</span>
+      <h1>17c传媒<br>让<em>每一帧</em>都有回声</h1>
+      <p class="lede">17c传媒是一家以影像为核心的内容品牌——我们用纪录、短片、栏目和线下放映，把创作者的真实表达交还给愿意停下来观看的人。</p>
+      <div class="hero-actions">
+        <a class="btn-primary" href="#works">观看作品展映 <span>▶</span></a>
+        <a class="btn-ghost" href="#about">认识 17c传媒</a>
+      </div>
+      <div class="hero-meta">
+        <div><strong>1,280+</strong><span>影像作品</span></div>
+        <div><strong>46</strong><span>座城市放映</span></div>
+        <div><strong>9.2万</strong><span>创作者社区</span></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="frame">
+        <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <defs>
+            <linearGradient id="hg1" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#1a1f28"/>
+              <stop offset="1" stop-color="#0e1116"/>
+            </linearGradient>
+            <linearGradient id="hg2" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#e2542b" stop-opacity=".9"/>
+              <stop offset="1" stop-color="#c8a15a" stop-opacity=".65"/>
+            </linearGradient>
+          </defs>
+          <rect width="400" height="500" fill="url(#hg1)"/>
+          <circle cx="300" cy="120" r="120" fill="#e2542b" opacity=".16"/>
+          <circle cx="90" cy="380" r="150" fill="#1f6feb" opacity=".12"/>
+          <g opacity=".6" stroke="#f6f4ef" stroke-width="1" fill="none">
+            <rect x="42" y="42" width="316" height="416" rx="6"/>
+            <line x1="42" y1="128" x2="358" y2="128"/>
+            <line x1="42" y1="372" x2="358" y2="372"/>
+            <line x1="118" y1="42" x2="118" y2="128"/>
+            <line x1="282" y1="42" x2="282" y2="128"/>
+          </g>
+          <g>
+            <rect x="70" y="170" width="168" height="10" rx="5" fill="#f6f4ef" opacity=".82"/>
+            <rect x="70" y="194" width="240" height="6" rx="3" fill="#f6f4ef" opacity=".34"/>
+            <rect x="70" y="210" width="196" height="6" rx="3" fill="#f6f4ef" opacity=".22"/>
+          </g>
+          <g transform="translate(70,250)">
+            <circle cx="26" cy="26" r="26" fill="url(#hg2)"/>
+            <path d="M19 15 L38 26 L19 37 Z" fill="#0e1116"/>
+          </g>
+          <g transform="translate(70,330)">
+            <path d="M0 22 L40 22 L40 26 L0 26 Z" fill="#f6f4ef" opacity=".28"/>
+            <path d="M0 22 L96 22" stroke="#e2542b" stroke-width="2"/>
+            <circle cx="96" cy="22" r="3" fill="#e2542b"/>
+          </g>
+          <g opacity=".4" font-family="monospace" font-size="9" fill="#f6f4ef" letter-spacing="3">
+            <text x="70" y="408">REC / 24FPS / 4K</text>
+            <text x="70" y="424">17C MEDIA ARCHIVE 017</text>
+          </g>
+        </svg>
+        <span class="tag">SHOWREEL · 2024</span>
+        <span class="rec"><i></i> ON AIR</span>
+        <div class="caption">
+          <b>《城市微光》系列 · 第一季</b>
+          <small>EP.03</small>
+        </div>
+      </div>
+      <div class="floating-card">
+        <small>本周播放完成率</small>
+        <strong>78.4%</strong>
+        <div class="bar"><i></i></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="logo-strip">
+  <div class="wrap">
+    <span>合作与联合出品</span>
+    <div class="names">
+      <span>城市影像馆</span>
+      <span>新纪实联盟</span>
+      <span>青影计划</span>
+      <span>地平线影展</span>
+      <span>光年后期</span>
+    </div>
+  </div>
+</div>
+
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <span class="eyebrow">Brand Story</span>
+        <h2>17c传媒在做一件很慢的事</h2>
+      </div>
+      <p>我们不追逐流量的瞬时爆点，而是把时间花在人物的呼吸、场景的质感，以及一段故事真正被讲清楚的耐心上。</p>
+    </div>
+    <div class="about-grid">
+      <div class="about-copy reveal">
+        <p><strong>17c传媒</strong>起步于一支六个人的小团队和一间接不到自然光的剪辑室。最初的想法很简单：拍下那些没被镜头认真对待过的人和地方。十年过去，团队规模变了，设备变了，放映的银幕从一堵白墙换成了四十多座城市的影院，但这件事的内核没有变。</p>
+        <p>我们把内容分成两条主线：一条是<strong>纪实与人物</strong>，用长周期的跟拍去抵达真实；另一条是<strong>短片与实验</strong>，允许年轻创作者用不那么安全的方式表达。两条线互为参照，构成了 17c传媒的影像底色。</p>
+        <p>我们相信，一个视频品牌的价值不只在成片里，也在它如何对待创作者、如何与观众相处。所以我们建社区、办放映、做公开的创作工作坊，让影像从屏幕走到房间里。</p>
+        <div class="quote">「影像不是答案，它只是一次更诚实的提问。」—— 17c传媒内容团队</div>
+      </div>
+      <div class="pillars reveal">
+        <div class="pillar">
+          <span class="num">01</span>
+          <div>
+            <h4>真实优先的叙事</h4>
+            <p>拒绝摆拍的伪纪实，用长期跟拍与现场录音保留人物原本的语气和停顿。</p>
+          </div>
+        </div>
+        <div class="pillar">
+          <span class="num">02</span>
+          <div>
+            <h4>可被观看的技术</h4>
+            <p>从拍摄、调色到声音设计全流程自建，让技术服务于情绪，而不是炫技。</p>
+          </div>
+        </div>
+        <div class="pillar">
+          <span class="num">03</span>
+          <div>
+            <h4>持续的社区现场</h4>
+            <p>每年四十余场线下放映与见面会，让创作者与观众在同一空间里对话。</p>
+          </div>
+        </div>
+        <div class="pillar">
+          <span class="num">04</span>
+          <div>
+            <h4>对新人的耐心</h4>
+            <p>青影计划每年支持十二位新导演完成首部作品，提供资金、设备与放映通道。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="works" class="works">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <span class="eyebrow">Selected Works</span>
+        <h2>影像作品展映</h2>
+      </div>
+      <p>精选 17c传媒自制与联合出品的影像作品，涵盖纪录长片、人物短片与实验影像。</p>
+    </div>
+    <div class="work-grid">
+      <article class="work-card reveal">
+        <div class="thumb">
+          <svg viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <rect width="400" height="250" fill="#1a1f28"/>
+            <circle cx="320" cy="60" r="90" fill="#e2542b" opacity=".22"/>
+            <path d="M0 200 L120 130 L220 180 L320 110 L400 150 L400 250 L0 250 Z" fill="#0e1116"/>
+            <path d="M0 215 L100 165 L200 200 L300 150 L400 185" stroke="#c8a15a" stroke-width="1.5" fill="none" opacity=".7"/>
+            <g font-family="monospace" font-size="10" fill="#f6f4ef" opacity=".5" letter-spacing="3">
+              <text x="24" y="40">DOC / 74MIN</text>
+            </g>
+          </svg>
+          <div class="play"><span>▶</span></div>
+        </div>
+        <div class="meta">
+          <span class="k">纪录长片</span>
+          <h4>《潮汐之上》</h4>
+          <p>跟拍一座海岛渔村四年的退与守。</p>
+        </div>
+      </article>
+      <article class="work-card reveal">
+        <div class="thumb">
+          <svg viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <rect width="400" height="250" fill="#151a22"/>
+            <rect x="0" y="0" width="400" height="250" fill="#1f6feb" opacity=".14"/>
+            <g stroke="#f6f4ef" stroke-width="1" opacity=".5" fill="none">
+              <circle cx="200" cy="125" r="80"/>
+              <circle cx="200" cy="125" r="52"/>
+              <line x1="120" y1="125" x2="280" y2="125"/>
+              <line x1="200" y1="45" x2="200" y2="205"/>
+            </g>
+            <circle cx="200" cy="125" r="10" fill="#e2542b"/>
+            <g font-family="monospace" font-size="10" fill="#f6f4ef" opacity=".5" letter-spacing="3">
+              <text x="24" y="40">SHORT / 18MIN</text>
+            </g>
+          </svg>
+          <div class="play"><span>▶</span></div>
+        </div>
+        <div class="meta">
+          <span class="k">人物短片</span>
+          <h4>《第七个冬天》</h4>
+          <p>一位街头修表匠与他的最后一间铺子。</p>
+        </div>
+      </article>
+      <article class="work-card reveal">
+        <div class="thumb">
+          <svg viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <rect width="400" height="250" fill="#1a1f28"/>
+            <g opacity=".8">
+              <rect x="40" y="150" width="26" height="80" fill="#c8a15a" opacity=".5"/>
+              <rect x="80" y="120" width="26" height="110" fill="#c8a15a" opacity=".6"/>
+              <rect x="120" y="90" width="26" height="140" fill="#c8a15a" opacity=".7"/>
+              <rect x="160" y="140" width="26" height="90" fill="#c8a15a" opacity=".5"/>
+              <rect x="200" y="60" width="26" height="170" fill="#e2542b" opacity=".75"/>
+              <rect x="240" y="110" width="26" height="120" fill="#c8a15a" opacity=".6"/>
+              <rect x="280" y="80" width="26" height="150" fill="#c8a15a" opacity=".65"/>
+              <rect x="320" y="130" width="26" height="100" fill="#c8a15a" opacity=".5"/>
+            </g>
+            <g font-family="monospace" font-size="10" fill="#f6f4ef" opacity=".5" letter-spacing="3">
+              <text x="24" y="40">SERIES / S2</text>
+            </g>
+          </svg>
+          <div class="play"><span>▶</span></div>
+        </div>
+        <div class="meta">
+          <span class="k">栏目剧集</span>
+          <h4>《城市微光》S2</h4>
+          <p>十二个普通人的夜晚，拼成一座城。</p>
+        </div>
+      </article>
+      <article class="work-card reveal">
+        <div class="thumb">
+          <svg viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <rect width="400" height="250" fill="#11151b"/>
+            <g stroke="#1f6feb" stroke-width="1.2" opacity=".7" fill="none">
+              <path d="M0 180 Q100 80 200 150 T400 100"/>
+              <path d="M0 200 Q100 110 200 175 T400 130"/>
+            </g>
+            <g stroke="#e2542b" stroke-width="1.2" opacity=".8" fill="none">
+              <path d="M0 130 Q100 200 200 120 T400 170"/>
+            </g>
+            <g font-family="monospace" font-size="10" fill="#f6f4ef" opacity=".5" letter-spacing="3">
+              <text x="24" y="40">EXPERIMENT / 9MIN</text>
+            </g>
+          </svg>
+          <div class="play"><span>▶</span></div>
+        </div>
+        <div class="meta">
+          <span class="k">实验影像</span>
+          <h4>《波形失语》</h4>
+          <p>把一段对话拆成声波，再重新拼回去。</p>
+        </div>
+      </article>
+      <article class="work-card reveal">
+        <div class="thumb">
+          <svg viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <rect width="400" height="250" fill="#1a1f28"/>
+            <circle cx="200" cy="125" r="70" fill="none" stroke="#e2542b" stroke-width="1.4" opacity=".8"/>
+            <circle cx="200" cy="125" r="48" fill="none" stroke="#c8a15a" stroke-width="1.2" opacity=".6"/>
+            <circle cx="200" cy="125" r="26" fill="none" stroke="#f6f4ef" stroke-width="1" opacity=".5"/>
+            <path d="M200 55 L200 195 M130 125 L270 125" stroke="#f6f4ef" stroke-width=".6" opacity=".3"/>
+            <g font-family="monospace" font-size="10" fill="#f6f4ef" opacity=".5" letter-spacing="3">
+              <text x="24" y="40">PORTRAIT / 26MIN</text>
+            </g>
+          </svg>
+          <div class="play"><span>▶</span></div>
+        </div>
+        <div class="meta">
+          <span class="k">人物短片</span>
+          <h4>《在湖心排练》</h4>
+          <p>一支小剧团在水上舞台的第一次彩排。</p>
+        </div>
+      </article>
+      <article class="work-card reveal">
+        <div class="thumb">
+          <svg viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <rect width="400" height="250" fill="#141820"/>
+            <g opacity=".8">
+              <path d="M40 210 L120 120 L200 180 L280 90 L360 160 L360 250 L40 250 Z" fill="#0e1116"/>
+              <path d="M40 210 L120 120 L200 180 L280 90 L360 160" stroke="#e2542b" stroke-width="1.6" fill="none"/>
+            </g>
+            <circle cx="280" cy="90" r="5" fill="#e2542b"/>
+            <g font-family="monospace" font-size="10" fill="#f6f4ef" opacity=".5" letter-spacing="3">
+              <text x="24" y="40">ROAD MOVIE / 52MIN</text>
+            </g>
+          </svg>
+          <div class="play"><span>▶</span></div>
+        </div>
+        <div class="meta">
+          <span class="k">公路纪实</span>
+          <h4>《向南八百公里》</h4>
+          <p>三个人、一辆旧车、一段没写完的路。</p>
+        </div>
+      </article>
+    </div>
+    <div class="work-more reveal">
+      <a href="#join">查看完整作品库 <span>→</span></a>
+    </div>
+  </div>
+</section>
+
+<section id="program" class="program">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <span class="eyebrow">Programming</span>
+        <h2>内容栏目与放映计划</h2>
+      </div>
+      <p>17c传媒以固定栏目维持与观众的节奏感，每一档节目都有明确的观看场景和更新承诺。</p>
+    </div>
+    <div class="prog-grid reveal">
+      <div class="prog-item">
+        <span class="d">MONTHLY</span>
+        <h4>《在场》人物访谈</h4>
+        <p>每月一位普通职业者，坐下来聊四十分钟，不设提纲，不做剪辑上的修饰。</p>
+        <span class="status live">更新中</span>
+      </div>
+      <div class="prog-item">
+        <span class="d">WEEKLY</span>
+        <h4>《一格》影像短评</h4>
+        <p>每周一期，从一部片子的单个镜头出发，谈谈影像为什么这样拍。</p>
+        <span class="status">每周五</span>
+      </div>
+      <div class="prog-item">
+        <span class="d">QUARTERLY</span>
+        <h4>青影计划放映</h4>
+        <p>青年导演首作集中放映，主创到场，映后开放三十分钟自由提问。</p>
+        <span class="status">下季启动</span>
+      </div>
+      <div class="prog-item">
+        <span class="d">ANNUAL</span>
+        <h4>17c 影像年展</h4>
+        <p>年度自制作品与社区征片精选合展，覆盖纪录、剧情与实验三个单元。</p>
+        <span class="status">筹备中</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="voices">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <span class="eyebrow">Community</span>
+        <h2>观众与创作者的回声</h2>
+      </div>
+      <p>每一条反馈都会被我们读完。社区不是数字，而是具体的、愿意说话的人。</p>
+    </div>
+    <div class="voices-grid">
+      <div class="voice reveal">
+        <div class="stars">★★★★★</div>
+        <blockquote>看完《潮汐之上》的那个晚上，我在海边坐了很久。17c传媒的镜头没有急着给答案，这种克制在现在太少见了。</blockquote>
+        <div class="who">
+          <div class="avatar" style="background:#e2542b">林</div>
+          <div><b>林知远</b><span>杭州 · 观众</span></div>
+        </div>
+      </div>
+      <div class="voice reveal">
+        <div class="stars">★★★★★</div>
+        <blockquote>青影计划给了我第一笔拍摄资金和第一次进影院的机会。17c传媒的监制会真的坐下来一帧一帧跟你聊。</blockquote>
+        <div class="who">
+          <div class="avatar" style="background:#1f6feb">周</div>
+          <div><b>周雨桐</b><span>成都 · 导演</span></div>
+        </div>
+      </div>
+      <div class="voice reveal">
+        <div class="stars">★★★★☆</div>
+        <blockquote>《一格》我几乎每期都看，它让我重新学会了怎么“看”一个镜头，而不只是看剧情。</blockquote>
+        <div class="who">
+          <div class="avatar" style="background:#c8a15a">陈</div>
+          <div><b>陈默</b><span>上海 · 观众</span></div>
+        </div>
+      </div>
+      <div class="voice reveal">
+        <div class="stars">★★★★★</div>
+        <blockquote>作为合作方，最放心的是他们对拍摄伦理的坚持——该问的同意一定会问，该等的情绪一定会等。</blockquote>
+        <div class="who">
+          <div class="avatar" style="background:#2f7d5b">吴</div>
+          <div><b>吴岚</b><span>制片人 · 联合出品</span></div>
+        </div>
+      </div>
+      <div class="voice reveal">
+        <div class="stars">★★★★★</div>
+        <blockquote>线下放映后的那半小时交流，比正片还让人上瘾。你会发现自己不是一个人在较真。</blockquote>
+        <div class="who">
+          <div class="avatar" style="background:#7b4ea3">赵</div>
+          <div><b>赵一鸣</b><span>北京 · 影迷</span></div>
+        </div>
+      </div>
+      <div class="voice reveal">
+        <div class="stars">★★★★☆</div>
+        <blockquote>声音设计是 17c传媒的隐藏杀手锏。建议戴耳机二刷，会听到完全不同的层次。</blockquote>
+        <div class="who">
+          <div class="avatar" style="background:#b8402f">何</div>
+          <div><b>何嘉树</b><span>深圳 · 声音设计师</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="wrap stats-grid">
+    <div class="stat reveal"><b>1,280<i>+</i></b><span>自制与联合作品</span></div>
+    <div class="stat reveal"><b>46<i>城</i></b><span>线下放映覆盖</span></div>
+    <div class="stat reveal"><b>9.2<i>万</i></b><span>创作者社区成员</span></div>
+    <div class="stat reveal"><b>12<i>位/年</i></b><span>青影计划支持</span></div>
+  </div>
+</section>
+
+<section id="journal">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <span class="eyebrow">Journal</span>
+        <h2>影像手记</h2>
+      </div>
+      <p>来自拍摄现场、剪辑台和放映厅的记录，写给愿意读到最后一行的人。</p>
+    </div>
+    <div class="journal-grid">
+      <article class="j-feature reveal">
+        <svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <defs>
+            <linearGradient id="jg" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#1a1f28"/>
+              <stop offset="1" stop-color="#0e1116"/>
+            </linearGradient>
+          </defs>
+          <rect width="600" height="400" fill="url(#jg)"/>
+          <circle cx="470" cy="110" r="140" fill="#e2542b" opacity=".16"/>
+          <g stroke="#f6f4ef" stroke-width="1" opacity=".35" fill="none">
+            <path d="M0 300 Q150 200 300 280 T600 230"/>
+            <path d="M0 330 Q150 240 300 310 T600 270"/>
+            <path d="M0 360 Q150 280 300 340 T600 310"/>
+          </g>
+          <g font-family="monospace" font-size="11" fill="#c8a15a" letter-spacing="4" opacity=".85">
+            <text x="40" y="60">FIELD NOTES / 017</text>
+          </g>
+        </svg>
+        <div class="j-content">
+          <span class="k">拍摄现场</span>
+          <h3>在海边等一场不来的雾</h3>
+          <p>为《潮汐之上》最后一个长镜头，我们在礁石上等了十一天。这篇手记记录了等待本身如何成为影片的一部分。</p>
+        </div>
+      </article>
+      <div class="j-list">
+        <article class="j-item reveal">
+          <span class="date">04.18</span>
+          <div>
+            <h4>关于“不剪掉呼吸”的一次讨论</h4>
+            <p>剪辑台上最难的，往往是决定保留一段沉默。</p>
+          </div>
+        </article>
+        <article class="j-item reveal">
+          <span class="date">04.02</span>
+          <div>
+            <h4>放映之后，我们如何收集问题</h4>
+            <p>映后交流不是宣传环节，而是内容的一部分。</p>
+          </div>
+        </article>
+        <article class="j-item reveal">
+          <span class="date">03.21</span>
+          <div>
+            <h4>青影计划第四期的三个变化</h4>
+            <p>更长的孵化周期，以及更明确的放映承诺。</p>
+          </div>
+        </article>
+        <article class="j-item reveal">
+          <span class="date">03.09</span>
+          <div>
+            <h4>一台旧录音机与它的十八年</h4>
+            <p>设备清单之外，我们也记录器材的来历。</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="join" class="cta-band">
+  <div class="wrap cta-inner">
+    <div>
+      <h2>把你的故事，放进 17c传媒的镜头里</h2>
+      <p>无论你是想投稿、合作拍摄，还是只想第一时间收到放映通知——留个邮箱，我们会认真回。</p>
+    </div>
+    <form class="cta-form" onsubmit="event.preventDefault();this.querySelector('button').textContent='已收到 ✓';this.querySelector('input').value='';">
+      <input type="email" placeholder="你的邮箱地址" required aria-label="邮箱地址">
+      <button type="submit">加入社区</button>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="brand" href="#top">
+          <span class="mark">17C</span>
+          <span>17c传媒<small>MEDIA / VISUAL</small></span>
+        </a>
+        <p>以真实为核心的影像内容品牌，持续记录、持续放映、持续与创作者同行。</p>
+        <div class="socials">
+          <a href="#top" aria-label="微博">WB</a>
+          <a href="#top" aria-label="B站">B</a>
+          <a href="#top" aria-label="小红书">RED</a>
+          <a href="#top" aria-label="微信">WX</a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h5>内容</h5>
+        <ul>
+          <li><a href="#works">影像作品</a></li>
+          <li><a href="#program">栏目剧集</a></li>
+          <li><a href="#journal">影像手记</a></li>
+          <li><a href="#program">放映计划</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h5>关于</h5>
+        <ul>
+          <li><a href="#about">品牌故事</a></li>
+          <li><a href="#voices">社区回声</a></li>
+          <li><a href="#join">合作与投稿</a></li>
+          <li><a href="#join">加入我们</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h5>联系</h5>
+        <ul>
+          <li><a href="#join">hello@17cmedia.cn</a></li>
+          <li><a href="#join">商务合作</a></li>
+          <li><a href="#join">媒体咨询</a></li>
+          <li><a href="#top">回到顶部</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2024 17C MEDIA · 保留所有权利</span>
+      <span>影像叙事现场 / MADE WITH PATIENCE</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var els = document.querySelectorAll('.reveal');
+  if(!('IntersectionObserver' in window)){
+    els.forEach(function(e){e.classList.add('in')});
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(en.isIntersecting){
+        en.target.classList.add('in');
+        io.unobserve(en.target);
+      }
+    });
+  },{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
+  els.forEach(function(e,i){
+    e.style.transitionDelay = Math.min(i%6*60,300) + 'ms';
+    io.observe(e);
+  });
+})();
+
+(function(){
+  var counters = document.querySelectorAll('.stat b');
+  var done = false;
+  function animate(el){
+    var raw = el.textContent.trim();
+    var num = parseFloat(raw.replace(/[^\d.]/g,''));
+    var suffix = raw.replace(/^[\d.,]+/,'');
+    if(isNaN(num)) return;
+    var start = performance.now(), dur = 1200;
+    var decimals = (raw.split('.')[1]||'').replace(/[^\d]/g,'').length;
+    function step(t){
+      var p = Math.min((t-start)/dur,1);
+      var eased = 1-Math.pow(1-p,3);
+      var val = num*eased;
+      el.textContent = (decimals?val.toFixed(decimals):Math.round(val).toLocaleString()) + suffix;
+      if(p<1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  var sec = document.querySelector('.stats');
+  if(!sec) return;
+  var so = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(en.isIntersecting && !done){
+        done = true;
+        counters.forEach(animate);
+        so.disconnect();
+      }
+    });
+  },{threshold:0.4});
+  so.observe(sec);
+})();
+</script>
+</body>
+  </html>
